@@ -35,6 +35,11 @@ public class clientHandler extends Thread{
 					// read the message to deliver.
 					String msg = scn.nextLine();
 
+					//check if message is quit and update variable
+					if(msg.equals("quit")){
+						break;
+					}
+
 					//encrypt the message with the server private key
 					encryptedMsg = serverKeys.encrypt(msg.getBytes());
 					System.out.println("Encrypted message in Bytes: "
@@ -77,8 +82,9 @@ public class clientHandler extends Thread{
         		//print received message to server screen
         		System.out.println("Client:\n"+plaintext+'\n');
 			}
+			System.out.println("Client has left...");
 			in.close();
-			socket.close();
+			clientSocket.close();
 		}
 		catch(Exception e) {
 			System.out.println(e);
