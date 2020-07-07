@@ -41,6 +41,17 @@ public class RSA {
     }
 
     /**
+     * Getters and setters
+     */
+    public BigInteger getQ(){
+        return q;
+    }
+
+    public BigInteger getE(){
+        return e;
+    }
+
+    /**
      * Make keys method to create the big integers needed for keys
      */
     public void makeKeys(){
